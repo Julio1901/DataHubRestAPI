@@ -1,6 +1,7 @@
 import { Router } from "express";
 import {StatusCodes} from "http-status-codes";
 import { getFiancialGoalMock } from "../../mock";
+import { FinancialGoalController } from "../controllers";
 
 const router = Router();
 
@@ -16,5 +17,7 @@ router.post("/create", (req, res) =>{
 router.get("/getGoalsMock", (req, res) =>{
 	return res.status(StatusCodes.ACCEPTED).json(getFiancialGoalMock());
 });
+
+router.post("/createGoal", FinancialGoalController.create);
 
 export { router };
